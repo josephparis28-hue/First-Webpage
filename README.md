@@ -5,8 +5,6 @@ A personal portfolio website showcasing my background as a Computer Applications
 **Live website:** <https://josephparis28-hue.github.io/First-Webpage/>  
 **GitHub repository:** <https://github.com/josephparis28-hue/First-Webpage>
 
-> This repository contains my **personal developer portfolio**, not the separate ROEH 111 business website. Changes published to GitHub Pages may take a short time to appear.
-
 ## About the Project
 
 This project began as a first webpage and has been redesigned into a more complete, single-page portfolio. It demonstrates how HTML, CSS, and a small amount of JavaScript work together to create a professional, user-friendly website without a frontend framework.
@@ -33,14 +31,14 @@ The site introduces who I am, highlights what I am learning, shares examples of 
 - Coordinated navy, teal, and light background sections.
 - Keyboard-accessible navigation controls, visible focus styles, a skip-to-content link, and semantic page sections.
 - Reduced-motion support for visitors who prefer less animation.
-- JavaScript that manages the mobile menu, scrolls reliably to sections (including Goals), powers the Back to Top button, and updates the footer year.
+- Native HTML anchor navigation for sections (including Goals) and Back to top; JavaScript handles the mobile menu and updates the footer year.
 - A lightweight, static design that can be hosted with GitHub Pages.
 
 ## Technologies Used
 
 - **HTML5:** Semantic structure and website content.
 - **CSS3:** Layouts, colors, typography, responsive breakpoints, and visual effects.
-- **JavaScript (vanilla):** Mobile menu, section scrolling, Back to Top button, and automatic copyright year.
+- **JavaScript (vanilla):** Accessible mobile menu behavior and automatic copyright year. Scrolling works without JavaScript.
 - **Google Fonts:** Manrope and DM Sans; local/system font fallbacks are also provided.
 - **GitHub Pages:** Static website hosting.
 
@@ -64,11 +62,21 @@ First-Webpage/
 
 Because this is a static site, no additional setup is required. An editor such as Visual Studio Code and its Live Server extension can be useful during development, but are optional.
 
+## Publish or Update with GitHub Pages
+
+1. Open the [`First-Webpage` repository](https://github.com/josephparis28-hue/First-Webpage).
+2. Add or replace the files `index.html`, `style.css`, `script.js`, and `README.md` **in the repository root** (not inside an extra folder).
+3. Commit the updates to the branch used for GitHub Pages.
+4. In the repository, go to **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch** if needed, and confirm the correct branch (commonly `main`) and **`/(root)`** folder.
+5. Once the deployment completes, visit: <https://josephparis28-hue.github.io/First-Webpage/>
+
+**Important:** Updating files on your computer does not update the live website until the changes are committed and deployed on GitHub.
+
 ## Navigation and Scrolling
 
 - Click **Goals** in the main navigation or **More about my goals** in the About section to reach the Goals section.
-- Click **Back to top ↑** in the footer to return to the start of the page.
-- Standard anchor links (`href="#goals"`, for example) work even without JavaScript. JavaScript enhances scrolling and closes the mobile menu after selecting a section.
+- Click **Back to top ↑** in the footer to return to the start of the page. The control is an anchor link (`<a href="#top">`), not a JavaScript-only button.
+- Section links use native HTML anchors, including `href="#goals"` and the footer `href="#top"`. Both work without JavaScript. JavaScript only closes the mobile menu after selecting a section.
 - The CSS uses `scroll-margin-top` so the sticky header does not cover section headings. Reduced-motion settings are respected.
 
 ## Code Formatting
@@ -89,7 +97,7 @@ The website includes semantic landmarks, heading structure, a skip link, visible
 
 Before publishing major updates, check that:
 
-- Navigation links reach the correct sections, especially Goals, and the footer Back to Top button scrolls all the way up.
+- Navigation links reach the correct sections, especially Goals, and the footer Back to Top link scrolls all the way up, with JavaScript enabled or disabled.
 - The mobile menu opens, closes, and works with a keyboard.
 - Text is readable and cards fit on small screens without horizontal scrolling.
 - Project links and email links work.

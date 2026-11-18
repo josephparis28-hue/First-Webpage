@@ -1,32 +1,68 @@
+/**
+ * Joseph Paris | Developer Portfolio
+ *
+ * The mobile menu and footer year are enhanced with JavaScript.
+ * All page navigation, including "Back to top," uses standard HTML
+ * anchor links so it still works when JavaScript is disabled.
+ */
+
 const menuButton = document.querySelector('.menu-toggle');
 const primaryNav = document.querySelector('#primary-nav');
+const yearElement = document.querySelector('#year');
+
+/** Close the mobile navigation and reset the accessible button label. */
+function closeMenu() {
+  if (!menuButton || !primaryNav) {
+    return;
+  }
+
+  primaryNav.classList.remove('is-open');
+  menuButton.setAttribute('aria-expanded', 'false');
+  menuButton.setAttribute('aria-label', 'Open navigation menu');
+}
 
 if (menuButton && primaryNav) {
-  const closeMenu = () => {
-    primaryNav.classList.remove('is-open');
-    menuButton.setAttribute('aria-expanded', 'false');
-    menuButton.setAttribute('aria-label', 'Open navigation menu');
-  };
-
   menuButton.addEventListener('click', () => {
-    const opened = primaryNav.classList.toggle('is-open');
-    menuButton.setAttribute('aria-expanded', String(opened));
-    menuButton.setAttribute('aria-label', opened ? 'Close navigation menu' : 'Open navigation menu');
+    const isOpen = primaryNav.classList.toggle('is-open');
+
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute(
+      'aria-label',
+      isOpen ? 'Close navigation menu' : 'Open navigation menu'
+    );
   });
 
-  primaryNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') {
+  // Close the mobile menu after selecting a page section.
+  primaryNav.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Keyboard support: Escape closes an open menu.
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && primaryNav.classList.contains('is-open')) {
       closeMenu();
       menuButton.focus();
     }
   });
-  document.addEventListener('click', event => {
-    if (!primaryNav.contains(event.target) && !menuButton.contains(event.target)) closeMenu();
+
+  // Dismiss the menu when clicking elsewhere on the page.
+  document.addEventListener('click', (event) => {
+    if (
+      !primaryNav.contains(event.target) &&
+      !menuButton.contains(event.target)
+    ) {
+      closeMenu();
+    }
   });
+
+  // Reset the mobile menu when returning to a desktop layout.
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 650) closeMenu();
+    if (window.innerWidth > 650) {
+      closeMenu();
+    }
   });
 }
-const year = document.getElementById('year');
-if (year) year.textContent = String(new Date().getFullYear());
+
+if (yearElement) {
+  yearElement.textContent = String(new Date().getFullYear());
+}
