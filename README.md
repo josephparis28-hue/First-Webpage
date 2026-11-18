@@ -62,16 +62,6 @@ First-Webpage/
 
 Because this is a static site, no additional setup is required. An editor such as Visual Studio Code and its Live Server extension can be useful during development, but are optional.
 
-## Publish or Update with GitHub Pages
-
-1. Open the [`First-Webpage` repository](https://github.com/josephparis28-hue/First-Webpage).
-2. Add or replace the files `index.html`, `style.css`, `script.js`, and `README.md` **in the repository root** (not inside an extra folder).
-3. Commit the updates to the branch used for GitHub Pages.
-4. In the repository, go to **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch** if needed, and confirm the correct branch (commonly `main`) and **`/(root)`** folder.
-5. Once the deployment completes, visit: <https://josephparis28-hue.github.io/First-Webpage/>
-
-**Important:** Updating files on your computer does not update the live website until the changes are committed and deployed on GitHub.
-
 ## Navigation and Scrolling
 
 - Click **Goals** in the main navigation or **More about my goals** in the About section to reach the Goals section.
