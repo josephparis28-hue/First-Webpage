@@ -100,8 +100,6 @@ Before publishing major updates, check that:
 - **[Joseph Paris Portfolio](https://josephparis28-hue.github.io/First-Webpage/)** — this site; ongoing improvements.
 - **[ROEH 111 Digital Revamp](https://josephparis28-hue.github.io/Roeh-111/)** — featured business website project; marked *In progress*.
 
-ROEH 111 now replaces the former Open Door COGIC project card, and appears only once. Project status labels describe the portfolio at the time of writing; update them as the projects change. The portfolio project links to this site instead of an outdated separate personal-website URL.
-
 ## Current Scope and Future Improvements
 
 This is a **static portfolio**. It uses `mailto:` for email contact and does **not** include a contact-form backend, login system, database, or content-management system.
